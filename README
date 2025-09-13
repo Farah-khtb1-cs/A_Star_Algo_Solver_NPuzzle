@@ -1,0 +1,84 @@
+# N-Puzzle A* Search Algorithm
+
+## Project Overview
+
+This implementation solves the classic N-Puzzle (sliding tile puzzle) using the **A* search algorithm** with two admissible heuristics: **Tiles Out of Place** and **Manhattan Distance**. The project is designed to meet CE368 course requirements and provides comprehensive visualization, statistical analysis, and an intuitive menu-driven interface.
+
+## Project Architecture
+
+```
+npuzzle/
+├── npuzzle.h          # Header file with declarations & data structures
+├── main.c             # Main program entry point & menu interface
+├── npuzzle_core.c     # Core puzzle logic and state management
+├── heuristic.c        # Heuristic function implementations
+├── astar.c            # A* search algorithm implementation
+├── display.c          # Output formatting & visualization utilities
+└── Makefile           # Build configuration and compilation rules
+```
+
+## Core Features
+
+### Data Structures
+* **TreeNode structure** containing:
+  - Puzzle state representation
+  - Cost values (g, h, f)
+  - Node flags (EXP, GST, PST)
+  - Parent and children node links
+
+### Heuristic Functions
+* **Tiles Out of Place**: Counts the number of tiles not in their goal positions
+* **Manhattan Distance**: Calculates the sum of distances each tile must move to reach its goal position
+
+### A* Search Implementation
+* Efficient open and closed list management
+* Goal state detection and duplicate node checking
+* Guaranteed optimal and complete solution finding
+* Memory-efficient tree traversal
+
+### Visualization & Analysis
+* Step-by-step solution path display
+* Complete search tree visualization with node details
+* Comprehensive search statistics including:
+  - Total nodes explored
+  - Solution depth
+  - Average branching factor
+
+## Building and Execution
+
+### Compilation
+```bash
+make        # Compile the project
+./npuzzle   # Execute the program
+```
+
+### Interactive Menu System
+The program offers four main options:
+
+1. **Default Puzzle** - Pre-configured standard puzzle
+2. **Challenging Puzzle** - More complex test case
+3. **Custom Puzzle Input** - User-defined initial state
+4. **Exit** - Terminate the program
+
+### Heuristic Selection
+Choose between two heuristic functions:
+- Tiles Out of Place
+- Manhattan Distance
+
+## Educational Objectives
+
+This project serves multiple learning purposes:
+
+* **AI Search Algorithms**: Practical implementation of informed search with admissible heuristics
+* **Data Structures**: Hands-on experience with tree structures, linked lists, and memory management
+* **Software Engineering**: Demonstrates modular design principles with clear separation of concerns
+* **Performance Analysis**: Enables comparison of different heuristic functions and their efficiency
+* **Algorithm Complexity**: Understanding of time and space complexity in search problems
+
+## Technical Implementation Details
+
+The A* algorithm ensures optimality through:
+- Admissible heuristic functions that never overestimate the true cost
+- Systematic exploration of the state space
+- Efficient node expansion and pruning strategies
+- Complete solution path reconstruction from goal to initial state
