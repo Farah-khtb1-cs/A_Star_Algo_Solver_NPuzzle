@@ -1,25 +1,22 @@
-# N-Puzzle A* Search Algorithm
-
+N-Puzzle A* Search Algorithm
 A comprehensive implementation of the classic sliding tile puzzle solver using the A* search algorithm with multiple heuristic functions. This project demonstrates artificial intelligence search techniques, efficient data structures, and algorithm optimization.
-
-## 🧩 About the N-Puzzle
-
+🧩 About the N-Puzzle
 The N-Puzzle is a sliding puzzle consisting of a grid of numbered tiles with one empty space. The goal is to arrange the tiles in numerical order by sliding them into the empty space. This implementation supports various puzzle sizes and provides optimal solutions using intelligent search strategies.
+✨ Features
 
-## ✨ Features
+A Search Algorithm*: Guaranteed optimal and complete solution finding
+Dual Heuristic Support:
 
-- **A* Search Algorithm**: Guaranteed optimal and complete solution finding
-- **Dual Heuristic Support**: 
-  - Tiles Out of Place heuristic
-  - Manhattan Distance heuristic
-- **Interactive Interface**: Menu-driven system with multiple puzzle options
-- **Comprehensive Visualization**: Step-by-step solution paths and search tree analysis
-- **Performance Analytics**: Detailed statistics on search efficiency and solution quality
-- **Modular Architecture**: Clean, maintainable code structure
+Tiles Out of Place heuristic
+Manhattan Distance heuristic
 
-## 🏗️ Project Structure
 
-```
+Interactive Interface: Menu-driven system with multiple puzzle options
+Comprehensive Visualization: Step-by-step solution paths and search tree analysis
+Performance Analytics: Detailed statistics on search efficiency and solution quality
+Modular Architecture: Clean, maintainable code structure
+
+🏗️ Project Structure
 npuzzle/
 ├── npuzzle.h          # Core definitions and data structures
 ├── main.c             # Program entry point and user interface
@@ -28,18 +25,15 @@ npuzzle/
 ├── astar.c            # A* search algorithm core
 ├── display.c          # Visualization and output formatting
 └── Makefile           # Build system configuration
-```
+🚀 Getting Started
+Prerequisites
 
-## 🚀 Getting Started
+GCC compiler
+Make utility
+Unix-like environment (Linux/macOS/WSL)
 
-### Prerequisites
-- GCC compiler
-- Make utility
-- Unix-like environment (Linux/macOS/WSL)
-
-### Building the Project
-```bash
-# Clone or download the project files
+Building the Project
+bash# Clone or download the project files
 cd npuzzle
 
 # Compile the project
@@ -47,18 +41,10 @@ make
 
 # Run the program
 ./npuzzle
-```
-
-### Cleaning Build Files
-```bash
-make clean
-```
-
-## 💻 Usage
-
+Cleaning Build Files
+bashmake clean
+💻 Usage
 Upon running the program, you'll be presented with an interactive menu:
-
-```
 N-Puzzle Solver - A* Search Algorithm
 =====================================
 
@@ -68,38 +54,34 @@ N-Puzzle Solver - A* Search Algorithm
 4. Exit
 
 Choose an option (1-4):
-```
+Puzzle Options
 
-### Puzzle Options
+Default Puzzle - A standard 3x3 puzzle configuration for quick testing
+Challenging Puzzle - A more complex scenario that requires deeper search
+Custom Puzzle - Input your own initial puzzle state
+Exit - Quit the application
 
-1. **Default Puzzle** - A standard 3x3 puzzle configuration for quick testing
-2. **Challenging Puzzle** - A more complex scenario that requires deeper search
-3. **Custom Puzzle** - Input your own initial puzzle state
-4. **Exit** - Quit the application
-
-### Heuristic Selection
-
+Heuristic Selection
 After choosing a puzzle, select your preferred heuristic:
 
-- **Tiles Out of Place**: Counts misplaced tiles (simple but effective)
-- **Manhattan Distance**: Sum of distances each tile must travel (more informed)
+Tiles Out of Place: Counts misplaced tiles (simple but effective)
+Manhattan Distance: Sum of distances each tile must travel (more informed)
 
-## 🔍 Algorithm Details
-
-### A* Search Implementation
-
+🔍 Algorithm Details
+A* Search Implementation
 The A* algorithm combines the benefits of uniform-cost search and greedy best-first search:
 
-- **f(n) = g(n) + h(n)**
-  - `g(n)`: Cost from start to current node
-  - `h(n)`: Heuristic estimate to goal
-  - `f(n)`: Total estimated cost of path through node
+f(n) = g(n) + h(n)
 
-### Data Structures
+g(n): Cost from start to current node
+h(n): Heuristic estimate to goal
+f(n): Total estimated cost of path through node
 
-**TreeNode Structure:**
-```c
-typedef struct TreeNode {
+
+
+Data Structures
+TreeNode Structure:
+ctypedef struct TreeNode {
     int puzzle[SIZE][SIZE];    // Current puzzle state
     int g_cost;                // Path cost from start
     int h_cost;                // Heuristic estimate
@@ -108,80 +90,75 @@ typedef struct TreeNode {
     struct TreeNode *parent;   // Parent node reference
     struct TreeNode *children; // Child nodes
 } TreeNode;
-```
+Heuristic Functions
+Tiles Out of Place:
 
-### Heuristic Functions
+Counts the number of tiles not in their target positions
+Simple to compute, admissible heuristic
+Good for smaller puzzles
 
-**Tiles Out of Place:**
-- Counts the number of tiles not in their target positions
-- Simple to compute, admissible heuristic
-- Good for smaller puzzles
+Manhattan Distance:
 
-**Manhattan Distance:**
-- Sum of horizontal and vertical distances for each misplaced tile
-- More informed than tiles out of place
-- Better performance on larger puzzles
+Sum of horizontal and vertical distances for each misplaced tile
+More informed than tiles out of place
+Better performance on larger puzzles
 
-## 📊 Output and Analysis
-
+📊 Output and Analysis
 The program provides comprehensive feedback:
+Solution Path
 
-### Solution Path
-- Step-by-step moves from initial state to goal
-- Clear visualization of each puzzle configuration
-- Move descriptions and costs
+Step-by-step moves from initial state to goal
+Clear visualization of each puzzle configuration
+Move descriptions and costs
 
-### Search Statistics
-- **Total Nodes Explored**: Number of states examined
-- **Solution Depth**: Number of moves in optimal path  
-- **Branching Factor**: Average number of child nodes per expanded node
-- **Execution Time**: Time taken to find the solution
+Search Statistics
 
-### Search Tree Visualization
-- Complete tree structure with node details
-- Parent-child relationships
-- Cost information for each node
+Total Nodes Explored: Number of states examined
+Solution Depth: Number of moves in optimal path
+Branching Factor: Average number of child nodes per expanded node
+Execution Time: Time taken to find the solution
 
-## 🎯 Educational Applications
+Search Tree Visualization
 
+Complete tree structure with node details
+Parent-child relationships
+Cost information for each node
+
+🎯 Educational Applications
 This project is ideal for learning:
 
-- **Artificial Intelligence**: Informed search algorithms and heuristic design
-- **Data Structures**: Tree structures, linked lists, and memory management
-- **Algorithm Analysis**: Time and space complexity considerations
-- **Software Design**: Modular programming and separation of concerns
-- **Problem Solving**: State space search and optimization techniques
+Artificial Intelligence: Informed search algorithms and heuristic design
+Data Structures: Tree structures, linked lists, and memory management
+Algorithm Analysis: Time and space complexity considerations
+Software Design: Modular programming and separation of concerns
+Problem Solving: State space search and optimization techniques
 
-## 🔧 Technical Notes
+🔧 Technical Notes
+Optimality Guarantees
 
-### Optimality Guarantees
-- Both heuristics are admissible (never overestimate true cost)
-- A* guarantees finding the optimal solution
-- Consistent heuristics ensure efficient search
+Both heuristics are admissible (never overestimate true cost)
+A* guarantees finding the optimal solution
+Consistent heuristics ensure efficient search
 
-### Memory Management
-- Dynamic node allocation and deallocation
-- Efficient tree traversal algorithms
-- Proper cleanup of search structures
+Memory Management
 
-### Performance Considerations
-- Open and closed list management for efficiency
-- Duplicate state detection to avoid redundant work
-- Optimized heuristic calculations
+Dynamic node allocation and deallocation
+Efficient tree traversal algorithms
+Proper cleanup of search structures
 
-## 🤝 Contributing
+Performance Considerations
 
+Open and closed list management for efficiency
+Duplicate state detection to avoid redundant work
+Optimized heuristic calculations
+
+🤝 Contributing
 This project is designed for educational purposes. Suggestions for improvements or additional features are welcome:
 
-- Additional heuristic functions
-- Support for larger puzzle sizes
-- Enhanced visualization options
-- Performance optimizations
+Additional heuristic functions
+Support for larger puzzle sizes
+Enhanced visualization options
+Performance optimizations
 
-## 📝 License
-
+📝 License
 This project is provided for educational use in accordance with course requirements.
-
----
-
-*Developed for CE368 - Artificial Intelligence Course*
